@@ -1,5 +1,6 @@
 const { createRoutes } = require('./router/')
 module.exports = {
+  plugins: ['~/plugins/request.js'],
   router: {
     // routes : 为 nuxt 根据 pages 目录生成的路由配置表
     // resolve : 该函数用于解析路径的

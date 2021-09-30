@@ -4370,10 +4370,10 @@ jiti@^1.9.2:
   resolved "https://registry.nlark.com/jiti/download/jiti-1.12.3.tgz?cache=0&sync_timestamp=1632252445902&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fjiti%2Fdownload%2Fjiti-1.12.3.tgz#fe6f9cb066aa2c37981231dffb1d3f04ab4ebdb2"
   integrity sha1-/m+csGaqLDeYEjHf+x0/BKtOvbI=
 
-js-cookie@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.nlark.com/js-cookie/download/js-cookie-3.0.1.tgz#9e39b4c6c2f56563708d7d31f6f5f21873a92414"
-  integrity sha1-njm0xsL1ZWNwjX0x9vXyGHOpJBQ=
+js-cookie@2.2.0:
+  version "2.2.0"
+  resolved "https://registry.nlark.com/js-cookie/download/js-cookie-2.2.0.tgz#1b2c279a6eece380a12168b92485265b35b1effb"
+  integrity sha1-Gywnmm7s44ChIWi5JIUmWzWx7/s=
 
 js-tokens@^4.0.0:
   version "4.0.0"

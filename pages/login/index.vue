@@ -109,7 +109,7 @@ export default {
         this.setUserInfo(data.user);
 
         // 2. 数据持久化
-        Cookie.set('user', data.user)
+        Cookie.set('user', JSON.stringify(data.user))
 
         // 跳转页面到首页
         this.$router.push("/");

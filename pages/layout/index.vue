@@ -21,18 +21,22 @@
               <i class="ion-gear-a"></i>&nbsp;Settings
             </nuxt-link>
           </li>
-          <li class="nav-item">
-            <nuxt-link class="nav-link" to="/login">Sign in</nuxt-link>
-          </li>
-          <li class="nav-item">
-            <nuxt-link class="nav-link" to="/register">Sign up</nuxt-link>
-          </li>
+
           <li class="nav-item">
             <nuxt-link class="nav-link" to="/profile/234">
-              <img class="user-pic" />
+              <img class="user-pic" :src="user.image" />
               {{ user.username }}
             </nuxt-link>
           </li>
+
+          <template v-if="!user.token">
+            <li class="nav-item">
+              <nuxt-link class="nav-link" to="/login">Sign in</nuxt-link>
+            </li>
+            <li class="nav-item">
+              <nuxt-link class="nav-link" to="/register">Sign up</nuxt-link>
+            </li>
+          </template>
         </ul>
       </div>
     </nav>
