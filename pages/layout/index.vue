@@ -1,81 +1,102 @@
 <template>
   <div>
-    <!-- Header -->
+    <!-- 顶部导航栏 -->
     <nav class="navbar navbar-light">
       <div class="container">
-        <nuxt-link to="/" class="navbar-brand" href="index.html"
-          >conduit</nuxt-link
-        >
+        <!-- <a class="navbar-brand" href="index.html">conduit</a> -->
+        <nuxt-link
+          class="navbar-brand"
+          to="/"
+        >Home</nuxt-link>
         <ul class="nav navbar-nav pull-xs-right">
           <li class="nav-item">
             <!-- Add "active" class when you're on that page" -->
-            <nuxt-link class="nav-link" to="/" exact>Home</nuxt-link>
+            <!-- <a class="nav-link active" href="">Home</a> -->
+            <nuxt-link
+              class="nav-link"
+              to="/"
+              exact
+            >Home</nuxt-link>
           </li>
-          <li class="nav-item">
-            <nuxt-link class="nav-link" to="/editor">
-              <i class="ion-compose"></i>&nbsp;New Post</nuxt-link
-            >
-          </li>
-          <li class="nav-item">
-            <nuxt-link class="nav-link" to="/settings">
-              <i class="ion-gear-a"></i>&nbsp;Settings
-            </nuxt-link>
-          </li>
-
-          <li class="nav-item">
-            <nuxt-link class="nav-link" to="/profile/234">
-              <img class="user-pic" :src="user.image" />
-              {{ user.username }}
-            </nuxt-link>
-          </li>
-
-          <template v-if="!user.token">
+          <template v-if="user">
             <li class="nav-item">
-              <nuxt-link class="nav-link" to="/login">Sign in</nuxt-link>
+              <nuxt-link
+                class="nav-link"
+                to="/editor"
+              >
+                <i class="ion-compose"></i>&nbsp;New Post
+              </nuxt-link>
             </li>
             <li class="nav-item">
-              <nuxt-link class="nav-link" to="/register">Sign up</nuxt-link>
+              <nuxt-link
+                class="nav-link"
+                to="/settings"
+              >
+                <i class="ion-gear-a"></i>&nbsp;Settings
+              </nuxt-link>
+            </li>
+            <li class="nav-item">
+              <nuxt-link class="nav-link" to="/profile/123">
+                <img
+                  class="user-pic"
+                  :src="user.image"
+                >
+                {{ user.username }}
+              </nuxt-link>
+            </li>
+          </template>
+
+          <template v-else>
+            <li class="nav-item">
+              <nuxt-link
+                class="nav-link"
+                to="/login"
+              >
+                Sign in
+              </nuxt-link>
+            </li>
+            <li class="nav-item">
+              <nuxt-link
+                class="nav-link"
+                to="/register"
+              >
+                Sign up
+              </nuxt-link>
             </li>
           </template>
         </ul>
       </div>
     </nav>
+    <!-- /顶部导航栏 -->
 
-    <!-- 子路由展示内容 -->
-    <nuxt-child />
+    <!-- 子路由 -->
+    <nuxt-child/>
+    <!-- /子路由 -->
 
-    <!-- Footer -->
+    <!-- 底部 -->
     <footer>
       <div class="container">
         <a href="/" class="logo-font">conduit</a>
         <span class="attribution">
-          An interactive learning project from
-          <a href="https://thinkster.io">Thinkster</a>. Code &amp; design
-          licensed under MIT.
+          An interactive learning project from <a href="https://thinkster.io">Thinkster</a>. Code &amp; design licensed under MIT.
         </span>
       </div>
     </footer>
+    <!-- /底部 -->
   </div>
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState } from 'vuex'
+
 export default {
-  name: "Layout",
-  data() {
-    return {};
-  },
-
-  components: {},
-
+  name: 'LayoutIndex',
   computed: {
-    ...mapState("user", ["user"]),
-  },
-
-  mounted() {},
-
-  methods: {},
-};
+    ...mapState(['user'])
+  }
+}
 </script>
-<style lang='scss' scoped>
+
+<style>
+
 </style>

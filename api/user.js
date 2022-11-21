@@ -1,7 +1,8 @@
-import { request } from "@/plugins/request.js";
+import { request } from '@/plugins/request'
 
 
-export const login = (data) => {
+// 用户登录
+export const login = data => {
   return request({
     method: 'POST',
     url: '/api/users/login',
@@ -9,8 +10,8 @@ export const login = (data) => {
   })
 }
 
-
-export const register = (data) => {
+// 用户注册
+export const register = data => {
   return request({
     method: 'POST',
     url: '/api/users',

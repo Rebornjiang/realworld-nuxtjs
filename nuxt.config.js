@@ -1,23 +1,69 @@
-const { createRoutes } = require('./router/')
+/**
+ * Nuxt.js 配置文件
+ */
+
 module.exports = {
-  plugins: ['~/plugins/request.js'],
   router: {
-    // routes : 为 nuxt 根据 pages 目录生成的路由配置表
-    // resolve : 该函数用于解析路径的
-    extendRoutes(routes, resolve) {
-      const path = __dirname
-      // 废掉 nuxt 生成的默认路由表
+    linkActiveClass: 'active',
+    // 自定义路由表规则
+    extendRoutes (routes, resolve) {
+      // 清除 Nuxt.js 基于 pages 目录默认生成的路由表规则
       routes.splice(0)
-      // 加载自定义路由规则
-      routes.push(...createRoutes(path, resolve))
-      // routes.push(...[
-      //   {
-      //     path: '/',
-      //     name: 'Layout',
-      //     component: resolve(path, 'pages/layout/index.vue')
-      //   }
-      // ])
-    },
-    linkActiveClass: 'active'
-  }
+
+      routes.push(...[
+        {
+          path: '/',
+          component: resolve(__dirname, 'pages/layout/'),
+          children: [
+            {
+              path: '', // 默认子路由
+              name: 'home',
+              component: resolve(__dirname, 'pages/home/')
+            },
+            {
+              path: '/login',
+              name: 'login',
+              component: resolve(__dirname, 'pages/login/')
+            },
+            {
+              path: '/register',
+              name: 'register',
+              component: resolve(__dirname, 'pages/login/')
+            },
+            {
+              path: '/profile/:username',
+              name: 'profile',
+              component: resolve(__dirname, 'pages/profile/')
+            },
+            {
+              path: '/settings',
+              name: 'settings',
+              component: resolve(__dirname, 'pages/settings/')
+            },
+            {
+              path: '/editor',
+              name: 'editor',
+              component: resolve(__dirname, 'pages/editor/')
+            },
+            {
+              path: '/article/:slug',
+              name: 'article',
+              component: resolve(__dirname, 'pages/article/')
+            }
+          ]
+        }
+      ])
+    }
+  },
+
+  server: {
+    host: '0.0.0.0',
+    port: 3001
+  },
+
+  // 注册插件
+  plugins: [
+    '~/plugins/request.js',
+    '~/plugins/dayjs.js'
+  ]
 }

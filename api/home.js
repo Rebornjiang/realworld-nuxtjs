@@ -8,7 +8,7 @@ export const getArticleList = (params) => {
   })
 }
 
-// 获取文章tag标签
+// 文章tag标签
 export const getTagList = () => {
   return request({
     method: 'GET',

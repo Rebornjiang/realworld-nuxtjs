@@ -1,17 +1,20 @@
 {
-  "name": "realworld-nuxtjs",
+  "name": "nuxt2_realworld_demo",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/Rebornjiang/realworld-nuxtjs.git",
+  "repository": "https://github.com/Rebornjiang/nuxt2_realworld_demo.git",
   "author": "RebornJiang <626104624@qq.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nuxt"
+    "dev": "nuxt",
+    "build": "nuxt build"
   },
   "dependencies": {
-    "axios": "^0.21.4",
+    "axios": "^0.21.3",
     "cookieparser": "^0.1.0",
-    "js-cookie": "2.2.0",
+    "dayjs": "^1.8.28",
+    "js-cookie": "^2.2.1",
+    "markdown-it": "^11.0.0",
     "nuxt": "^2.15.8"
   }
 }

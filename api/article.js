@@ -1,13 +1,51 @@
-import { request } from "@/plugins/request.js";
+import { request } from '@/plugins/request'
 
-
-export const addArticle = (data) => {
+// 公共文章列表
+export const getArticles = params => {
   return request({
+    method: 'GET',
     url: '/api/articles',
+    params
+  })
+}
+
+// 公共文章列表
+export const getYourFeedArticles = params => {
+  return request({
+    method: 'GET',
+    url: '/api/articles/feed',
+    params
+  })
+}
+
+// 添加点赞
+export const addFavorite = slug => {
+  return request({
     method: 'POST',
-    data,
-    headers: {
-      Authorization: 'Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZmYWQxQHFxLmNvbSIsInVzZXJuYW1lIjoicmVib3JuamlhbmciLCJwYXNzd29yZCI6IiQyYSQxMCRWbERzRFp3WDdOMm5TaUwyUHVBUXplVU5ObThXcndtT1p6RC9NbzRBSjViTHhpRmlqQlIxQyIsImJpbyI6bnVsbCwiaW1hZ2UiOiJodHRwczovL3JlYWx3b3JsZC10ZW1wLWFwaS5oZXJva3VhcHAuY29tL2ltYWdlcy9zbWlsZXktY3lydXMuanBlZyIsImlhdCI6MTYzMjkwNTkxMCwiZXhwIjoxNjM4MDg5OTEwfQ.xTteKWu7CRYMYWkhjFcssiIaQ52N5InYW4c62gSrEEY'
-    }
+    url: `/api/articles/${slug}/favorite`
+  })
+}
+
+// 取消点赞
+export const deleteFavorite = slug => {
+  return request({
+    method: 'DELETE',
+    url: `/api/articles/${slug}/favorite`
+  })
+}
+
+// 文章详情
+export const getArticle = slug => {
+  return request({
+    method: 'GET',
+    url: `/api/articles/${slug}`
+  })
+}
+
+// 文章评论
+export const getComments = slug => {
+  return request({
+    method: 'GET',
+    url: `/api/articles/${slug}/comments`
   })
 }
